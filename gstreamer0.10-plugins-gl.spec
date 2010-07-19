@@ -3,7 +3,7 @@
 %define version 0.10.1
 %define oname gst-plugins-gl
 %define majorminor 0.10
-%define release %mkrel 1
+%define release %mkrel 2
 %define major 0
 %define libname %mklibname gstgl %majorminor %major
 %define develname %mklibname -d gstgl %majorminor
@@ -22,7 +22,8 @@ BuildRequires: liboil-devel >= 0.3.8
 BuildREquires: glew-devel
 BuildREquires: libpng-devel
 BuildREquires: gtk+2-devel
-BuildREquires: clutter-devel < 0.9
+#gw it needs clutter 0.8
+BuildREquires: clutter-devel
 BuildRequires: gtk-doc
 
 
