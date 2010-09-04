@@ -1,10 +1,10 @@
 %define bname gstreamer0.10
 %define name %bname-plugins-gl
-%define version 0.10.1
+%define version 0.10.2
 %define oname gst-plugins-gl
 %define majorminor 0.10
-%define release %mkrel 2
-%define major 0
+%define release %mkrel 1
+%define major 1
 %define libname %mklibname gstgl %majorminor %major
 %define develname %mklibname -d gstgl %majorminor
 
