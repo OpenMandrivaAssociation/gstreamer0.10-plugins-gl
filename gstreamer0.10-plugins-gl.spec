@@ -18,13 +18,14 @@ Group: Sound
 Url: http://gstreamer.freedesktop.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libgstreamer0.10-plugins-base-devel >= 0.10.15.1
-BuildRequires: liboil-devel >= 0.3.8
+BuildRequires: pkgconfig(liboil-0.3)
 BuildREquires: glew-devel
 BuildREquires: libpng-devel
-BuildREquires: gtk+2-devel
+BuildREquires: pkgconfig(gtk+-2.0)
 #gw it needs clutter 0.8
 BuildREquires: clutter-devel
 BuildRequires: gtk-doc
+buildrequires: pkgconfig(glu)
 
 
 %description
@@ -115,4 +116,29 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/pkgconfig/gstreamer-gl-%majorminor.pc
 %_datadir/gtk-doc/html/gst-plugins-gl-libs-%majorminor
 %_datadir/gtk-doc/html/gst-plugins-gl-plugins-%majorminor
+
+
+
+%changelog
+* Sat Nov 05 2011 Götz Waschk <waschk@mandriva.org> 0.10.2-3mdv2012.0
++ Revision: 718904
+- rebuild
+
+* Fri Nov 05 2010 Funda Wang <fwang@mandriva.org> 0.10.2-2mdv2011.0
++ Revision: 593570
+- rebuild for gstreamer provides
+
+* Sat Sep 04 2010 Götz Waschk <waschk@mandriva.org> 0.10.2-1mdv2011.0
++ Revision: 575867
+- new version
+- new major
+
+* Mon Jul 19 2010 Götz Waschk <waschk@mandriva.org> 0.10.1-2mdv2011.0
++ Revision: 554909
+- build without clutter support
+
+* Mon Jul 13 2009 Götz Waschk <waschk@mandriva.org> 0.10.1-1mdv2010.0
++ Revision: 395470
+- import gstreamer0.10-plugins-gl
+
 
