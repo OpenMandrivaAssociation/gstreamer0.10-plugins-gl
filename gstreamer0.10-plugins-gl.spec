@@ -91,10 +91,6 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/gstreamer-%{majorminor}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 
-%check
-cd tests/check
-make check
-
 
 %files -f %oname-%majorminor.lang
 %doc RE* NEWS
