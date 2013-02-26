@@ -8,24 +8,23 @@
 %define libname %mklibname gstgl %majorminor %major
 %define develname %mklibname -d gstgl %majorminor
 
-Summary: GStreamer OpenGL Plug-ins
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://gstreamer.freedesktop.org/src/%oname/%{oname}-%{version}.tar.bz2
-License: LGPLv2+
-Group: Sound
-Url: http://gstreamer.freedesktop.org/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: libgstreamer0.10-plugins-base-devel >= 0.10.15.1
-BuildRequires: pkgconfig(liboil-0.3)
-BuildREquires: glew-devel
-BuildREquires: libpng-devel
-BuildREquires: pkgconfig(gtk+-2.0)
+Summary:	GStreamer OpenGL Plug-ins
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+Source0:	http://gstreamer.freedesktop.org/src/%oname/%{oname}-%{version}.tar.bz2
+License:	LGPLv2+
+Group:		Sound
+Url:		http://gstreamer.freedesktop.org/
+BuildRequires:	gstreamer0.10-plugins-base-devel >= 0.10.15.1
+BuildRequires:	pkgconfig(liboil-0.3)
+BuildRequires:	glew-devel
+BuildRequires:	libpng-devel
+BuildRequires:	pkgconfig(gtk+-2.0)
 #gw it needs clutter 0.8
-BuildREquires: clutter-devel
-BuildRequires: gtk-doc
-buildrequires: pkgconfig(glu)
+BuildRequires:	clutter-devel
+BuildRequires:	gtk-doc
+BuildRequires:	pkgconfig(glu)
 
 
 %description
@@ -39,11 +38,11 @@ within GStreamer pipelines. This module contains elements for, among others:
 * sources: gltestsrc
 
 
-%package -n %libname
-Summary: Libraries for GStreamer streaming-media framework
-Group: System/Libraries
+%package -n %{libname}
+Summary:	Libraries for GStreamer streaming-media framework
+Group:		System/Libraries
 
-%description -n %libname
+%description -n %{libname}
 GStreamer is a streaming-media framework, based on graphs of filters which
 operate on media data. Applications using this library can do anything
 from real-time sound processing to playing videos, and just about anything
@@ -53,13 +52,13 @@ plugins.
 
 This package contains the libraries.
 
-%package -n %develname
-Summary: Libraries and include files for GStreamer streaming-media framework
-Group: Development/C
-Requires: %{libname} = %{version}
-Provides: libgstgl-devel = %version-%release
+%package -n %{develname}
+Summary:	Libraries and include files for GStreamer streaming-media framework
+Group:		Development/C
+Requires:	%{libname} = %{version}-%{release}
+Provides:	libgstgl-devel = %{version}-%{release}
 
-%description -n %develname
+%description -n %{develname}
 GStreamer is a streaming-media framework, based on graphs of filters which
 operate on media data. Applications using this library can do anything
 from real-time sound processing to playing videos, and just about anything
@@ -76,14 +75,14 @@ applications and plugins for GStreamer.
 %setup -q -n %oname-%version
 
 %build
-%configure2_5x --disable-dependency-tracking \
-  --with-package-name='Mandriva %name package' \
-  --with-package-origin='http://www.mandriva.com/'
+%configure2_5x \
+		--disable-dependency-tracking \
+		--with-package-name='%{distribution} %{name} package' \
+		--with-package-origin='%{disturl}'
 
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 %find_lang %oname-%majorminor
 # Clean out files that should not be part of the rpm. 
@@ -96,20 +95,15 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 cd tests/check
 make check
 
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f %oname-%majorminor.lang
-%defattr(-, root, root)
 %doc RE* NEWS
 %_libdir/gstreamer-%majorminor/libgstopengl.so
 
 %files -n %libname
-%defattr(-, root, root)
 %_libdir/libgstgl-%majorminor.so.%{major}*
 
 %files -n %develname
-%defattr(-, root, root)
 %doc ChangeLog
 %_libdir/libgstgl-%majorminor.so
 %_includedir/gstreamer-%majorminor/gst/gl/
