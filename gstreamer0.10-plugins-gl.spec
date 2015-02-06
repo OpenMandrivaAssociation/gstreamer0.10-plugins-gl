@@ -3,7 +3,7 @@
 %define version 0.10.2
 %define oname gst-plugins-gl
 %define majorminor 0.10
-%define release %mkrel 3
+%define release 4
 %define major 1
 %define libname %mklibname gstgl %majorminor %major
 %define develname %mklibname -d gstgl %majorminor
