@@ -15,7 +15,7 @@ Release:	%{release}
 Source0:	http://gstreamer.freedesktop.org/src/%oname/%{oname}-%{version}.tar.bz2
 License:	LGPLv2+
 Group:		Sound
-Url:		http://gstreamer.freedesktop.org/
+Url:		https://gstreamer.freedesktop.org/
 BuildRequires:	pkgconfig(gstreamer-plugins-base-0.10)
 BuildRequires:	pkgconfig(liboil-0.3)
 BuildRequires:	glew-devel
